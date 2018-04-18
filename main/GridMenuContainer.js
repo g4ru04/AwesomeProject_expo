@@ -1,6 +1,3 @@
-
-// refer to https://github.com/fangwei716/30-days-of-react-native
-
 import * as React from 'react';
 import { 
   Text,
@@ -10,19 +7,15 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   Alert,
-  YellowBox 
 } from 'react-native';
-
 import {
   StackNavigator,
   Header,
 } from 'react-navigation';
-
-/*以下插件*/
 import Util from '../js/utils';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class GridMenuContainer extends React.Component{//<MyNavScreenProps> {
+export default class GridMenuContainer extends React.Component{
   constructor(props) {
     super(props);
   }
@@ -31,17 +24,21 @@ export default class GridMenuContainer extends React.Component{//<MyNavScreenPro
 	var boxs = this.props.data.map(function(elem, index) {
 	  return(
 	    <TouchableHighlight 
-		key={elem.key} 
-		style={[styles.touchBox, index%3==2?styles.touchBox2:styles.touchBox1]} 
-		underlayColor="#eee" 
-		onPress={()=> elem.onPress()} >
+			key={elem.key} 
+			style={[
+				styles.touchBox,
+				index%3==2 ? styles.touchBox2 : styles.touchBox1
+			]} 
+			underlayColor="#eee" 
+			onPress={()=> elem.onPress()} >
           <View style={styles.boxContainer}>
             <Text style={styles.boxText}>{elem.title}</Text>
-            <Icon size={48} color="#000" name={elem.icon} style={styles.boxIcon}></Icon>
+            <Icon size={elem.icon_size} color={elem.icon_color} name={elem.icon} style={styles.boxIcon}></Icon>
           </View>
         </TouchableHighlight>
 	  );
 	});
+	
     return (
 	  <View style={styles.touchBoxContainer}>
 		{boxs}
@@ -51,50 +48,50 @@ export default class GridMenuContainer extends React.Component{//<MyNavScreenPro
 }
 
 const styles = StyleSheet.create({
-  touchBox:{
-    width: Util.size.width/3-0.33334,
-    height:Util.size.width/3,
-    backgroundColor:"#fff",
+  touchBox: {
+    width: Util.size.width/3 - 0.33334,
+    height: Util.size.width/4,
+    backgroundColor: "#fff",
   },
-  touchBoxContainer:{
+  touchBoxContainer: {
     flexDirection: "row", 
-    flexWrap:"wrap",
+    flexWrap: "wrap",
     width: Util.size.width,
     borderTopWidth: Util.pixel,
-    borderTopColor:"#ccc",
+    borderTopColor: "#ccc",
     borderLeftWidth: Util.pixel,
-    borderLeftColor:"#ccc",
+    borderLeftColor: "#ccc",
     borderRightWidth: Util.pixel,
-    borderRightColor:"#ccc",
+    borderRightColor: "#ccc",
   },
-  touchBox1:{
+  touchBox1: {
     borderBottomWidth: Util.pixel,
-    borderBottomColor:"#ccc",
+    borderBottomColor: "#ccc",
     borderRightWidth: Util.pixel,
-    borderRightColor:"#ccc",
+    borderRightColor: "#ccc",
   },
-  touchBox2:{
+  touchBox2: {
     borderBottomWidth: Util.pixel,
-    borderBottomColor:"#ccc",
+    borderBottomColor: "#ccc",
     borderLeftWidth: Util.pixel,
-    borderLeftColor:"#ccc",
+    borderLeftColor: "#ccc",
   },
-  boxContainer:{
-    alignItems:"center",
-    justifyContent:"center",
+  boxContainer: {
+    alignItems: "center",
+    justifyContent: "center",
     width: Util.size.width/3,
-    height:Util.size.width/3,
+    height: Util.size.width/4,
   },
-  boxIcon:{
-    position:"relative",
-    top:-10
+  boxIcon: {
+    position: "relative",
+    top: -6
   },
-  boxText:{
-    position:"absolute",
-    bottom:15,
-    width:Util.size.width/3,
-    textAlign:"center",
+  boxText: {
+    position: "absolute",
+    bottom: 10,
+    width: Util.size.width/3,
+    textAlign: "center",
     left: 0,
-    backgroundColor:"transparent"
+    backgroundColor: "transparent"
   },
 });

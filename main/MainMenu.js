@@ -1,6 +1,3 @@
-
-// refer to https://github.com/fangwei716/30-days-of-react-native
-
 import * as React from 'react';
 import { 
   Text,
@@ -9,23 +6,16 @@ import {
   StyleSheet,
   TouchableOpacity,
   Alert,
-  YellowBox 
 } from 'react-native';
-
 import {
   StackNavigator,
+  Header,
 } from 'react-navigation';
-
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Orientation from 'react-native-orientation';
-
 import Util from '../js/utils';
 import GridMenuContainer from './GridMenuContainer';
 import Profile from './Profile';
 import Qrcode from './Qrcode';
-
-/*Pre Setting*/
-YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader','Remote debugger']);
 
 type MyNavScreenProps = {
   navigation: NavigationScreenProp<*>,
@@ -33,15 +23,7 @@ type MyNavScreenProps = {
 };
 
 class MainMenu extends React.Component<MyNavScreenProps> {
-  static navigationOptions = {
-    title: 'Welcome',
-	headerStyle:{
-		//height:0,
-	}
-  };
-  onPress1 = () => {
-	  Alert.alert("Press Profile1")
-  }
+  
   constructor(props) {
     super(props);
 	
@@ -51,58 +33,66 @@ class MainMenu extends React.Component<MyNavScreenProps> {
         title: "Profile",
         component: Profile,
         icon: "user",
-        onPress: this.onPress1,
+		icon_size: 48,
+        icon_color: "#000",
+        onPress: () => {
+			Alert.alert("Press Qrcode");
+		},
       },{
 		key: 1,
         title: "Qrcode",
         component: Qrcode,
         icon: "qrcode",
+		icon_size: 48,
+        icon_color: "#000",
         onPress: () => {
 			Alert.alert("Press Qrcode");
 		},
       },{
-		key:2,
-        title:"NotYet",
+		key: 2,
+        title: "NotYet",
         component: Qrcode,
         icon: "times",
+		icon_size: 48,
+        icon_color: "#000",
         onPress: () => {
 			//something
 		},
       },{
-		key:3,
-        title:"NotYet",
+		key: 3,
+        title: "NotYet",
         component: Qrcode,
         icon: "times",
+		icon_size: 48,
+        icon_color: "#000",
         onPress: () => {
 			//something
 		},
       },{
-		key:4,
-        title:"NotYet",
+		key: 4,
+        title: "NotYet",
         component: Qrcode,
         icon: "times",
+		icon_size: 48,
+        icon_color: "#000",
         onPress: () => {
 			//something
 		},
       },{
-		key:5,
-        title:"NotYet",
+		key: 5,
+        title: "NotYet",
         component: Qrcode,
         icon: "times",
+		icon_size: 48,
+        icon_color: "#000",
         onPress: () => {
 			//something
 		},
       }]
     }
   }
-  componentWillMount() {
-    //Orientation.lockToLandscape();
-  }
-  componentWillUnmount() {
-    //Orientation.lockToPortrait();
-  }
+  
   render() {
-
     return (
       <View style={styles.container}>
         <View style={styles.topContainer}>
@@ -110,11 +100,11 @@ class MainMenu extends React.Component<MyNavScreenProps> {
 				標題
 			</Text>
         </View>
-        <View style={styles.contextContainer}>
+        <View style = { styles.contextContainer } >
 			<Text>內文</Text>
         </View>
-        <View style={styles.bottomContainer}>
-			<GridMenuContainer data={this.state.grid_menu_data} />
+        <View style = { styles.bottomContainer } >
+			<GridMenuContainer data = { this.state.grid_menu_data } />
         </View>
       </View>
     );
@@ -137,18 +127,18 @@ const styles = StyleSheet.create({
 	backgroundColor: 'rgba(255,0,0,0.3)',
   },
   contextContainer:{
-	height: Util.size.height -0 -80 - (Util.size.width*2 /3),
 	top: 0 ,
+	height: Util.size.height - 80 - Util.size.width/2 ,
 	flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
 	backgroundColor: 'rgba(0,255,0,0.3)',
   },
   bottomContainer: {
-	//marginTop: 0,
+	bottom: 0,
+	height: Util.size.width/2,
 	justifyContent: 'center',
-	bottom:0,
-    height: Util.size.width*2 /3,
   },
 });
+
 export default MainMenu;
