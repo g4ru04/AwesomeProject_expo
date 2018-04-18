@@ -23,13 +23,14 @@ type MyNavScreenProps = {
 };
 
 class MainMenu extends React.Component<MyNavScreenProps> {
-  
+  static navigationOptions = {
+    title: 'Navigation自帶header',
+  };
   constructor(props) {
     super(props);
 	
     this.state = {
       grid_menu_data:[{
-        key: 0,
         title: "Profile",
         component: Profile,
         icon: "user",
@@ -39,7 +40,6 @@ class MainMenu extends React.Component<MyNavScreenProps> {
 			Alert.alert("Press Qrcode");
 		},
       },{
-		key: 1,
         title: "Qrcode",
         component: Qrcode,
         icon: "qrcode",
@@ -49,9 +49,8 @@ class MainMenu extends React.Component<MyNavScreenProps> {
 			Alert.alert("Press Qrcode");
 		},
       },{
-		key: 2,
         title: "NotYet",
-        component: Qrcode,
+        component: null,
         icon: "times",
 		icon_size: 48,
         icon_color: "#000",
@@ -59,9 +58,8 @@ class MainMenu extends React.Component<MyNavScreenProps> {
 			//something
 		},
       },{
-		key: 3,
         title: "NotYet",
-        component: Qrcode,
+        component: null,
         icon: "times",
 		icon_size: 48,
         icon_color: "#000",
@@ -69,9 +67,8 @@ class MainMenu extends React.Component<MyNavScreenProps> {
 			//something
 		},
       },{
-		key: 4,
         title: "NotYet",
-        component: Qrcode,
+        component: null,
         icon: "times",
 		icon_size: 48,
         icon_color: "#000",
@@ -79,9 +76,8 @@ class MainMenu extends React.Component<MyNavScreenProps> {
 			//something
 		},
       },{
-		key: 5,
         title: "NotYet",
-        component: Qrcode,
+        component: null,
         icon: "times",
 		icon_size: 48,
         icon_color: "#000",

@@ -24,7 +24,7 @@ export default class GridMenuContainer extends React.Component{
 	var boxs = this.props.data.map(function(elem, index) {
 	  return(
 	    <TouchableHighlight 
-			key={elem.key} 
+			key={index}
 			style={[
 				styles.touchBox,
 				index%3==2 ? styles.touchBox2 : styles.touchBox1
