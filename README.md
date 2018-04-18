@@ -1,7 +1,7 @@
 
 ## 一個普通的create-react-native-app(CRNA)範例
 * 無他
-
+* 真的無他
 
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
