@@ -1,6 +1,7 @@
 import React from 'react';
 import { 
   PixelRatio,
+  YellowBox,
 } from 'react-native';
 import Dimensions from 'Dimensions';
 import { Header } from 'react-navigation';
@@ -29,6 +30,15 @@ const Util = {
       .then((responseData) => {
         callback(responseData);
       });
+  },
+  preceding_operations: () => {
+	YellowBox.ignoreWarnings([
+	    'Warning: componentWillMount is deprecated',
+        'Warning: componentWillReceiveProps is deprecated',
+		'Warning: isMounted(...) is deprecated', 
+		'Module RCTImageLoader',
+		'Remote debugger'
+	]);
   },
   key: 'BDKHFSDKJFHSDKFHWEFH-REACT-NATIVE',
   

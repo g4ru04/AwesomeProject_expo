@@ -17,6 +17,8 @@ import GridMenuContainer from './GridMenuContainer';
 import Profile from './Profile';
 import Qrcode from './Qrcode';
 
+Util.preceding_operations();
+
 type MyNavScreenProps = {
   navigation: NavigationScreenProp<*>,
   banner: React.Node,
@@ -37,7 +39,10 @@ class MainMenu extends React.Component<MyNavScreenProps> {
 		icon_size: 48,
         icon_color: "#000",
         onPress: () => {
-			Alert.alert("Press Qrcode");
+			this.props.navigation.navigate('Profile', {
+				name : 'Brent'
+			});
+			//Alert.alert("Press Qrcode");
 		},
       },{
         title: "Qrcode",
@@ -46,7 +51,8 @@ class MainMenu extends React.Component<MyNavScreenProps> {
 		icon_size: 48,
         icon_color: "#000",
         onPress: () => {
-			Alert.alert("Press Qrcode");
+			this.props.navigation.navigate('Qrcode', null);
+			//Alert.alert("Press Qrcode");
 		},
       },{
         title: "NotYet",
