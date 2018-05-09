@@ -1,7 +1,6 @@
 
 ## 一個普通的create-react-native-app(CRNA)範例
-* 無他
-* 真的無他
+* 正式歸屬至智慧商店APP總專案前的暫存
 
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
